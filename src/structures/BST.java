@@ -1,18 +1,20 @@
+package structures;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 
 /**
  * A simple implementation of a binary search tree.
- * @param <K> The type of keys maintained by this BST.
+ * @param <K> The type of keys maintained by this structures.BST.
  * @param <V> The type of mapped values.
  */
-class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
-    protected Node root;  // Root node of the BST
-    private int size;   // Number of nodes in the BST
+public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
+    public Node root;  // Root node of the structures.BST
+    private int size;   // Number of nodes in the structures.BST
 
     /**
-     * A node class representing an element in the BST.
+     * A node class representing an element in the structures.BST.
      */
     public class Node {
         private K key;    // Key of the node
@@ -47,7 +49,7 @@ class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
     }
 
     /**
-     * Inserts a key-value pair into the BST.
+     * Inserts a key-value pair into the structures.BST.
      * @param key The key to be inserted.
      * @param val The value associated with the key.
      */
@@ -98,7 +100,7 @@ class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
     }
 
     /**
-     * Deletes the key-value pair associated with the given key from the BST.
+     * Deletes the key-value pair associated with the given key from the structures.BST.
      * @param key The key to be deleted.
      */
     public void delete(K key) {
@@ -137,15 +139,15 @@ class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
     }
 
     /**
-     * Returns the number of key-value pairs in the BST.
-     * @return The number of key-value pairs in the BST.
+     * Returns the number of key-value pairs in the structures.BST.
+     * @return The number of key-value pairs in the structures.BST.
      */
     public int size() {
         return size;
     }
 
     /**
-     * Performs in-order traversal of the BST and prints each node.
+     * Performs in-order traversal of the structures.BST and prints each node.
      */
     public void inOrder() {
         inOrder(root);
@@ -160,8 +162,8 @@ class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
     }
 
     /**
-     * Returns an iterator for in-order traversal of the BST.
-     * @return An iterator for in-order traversal of the BST.
+     * Returns an iterator for in-order traversal of the structures.BST.
+     * @return An iterator for in-order traversal of the structures.BST.
      */
     @Override
     public Iterator<Node> iterator() {
@@ -169,7 +171,7 @@ class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
     }
 
     /**
-     * An iterator class for in-order traversal of the BST.
+     * An iterator class for in-order traversal of the structures.BST.
      */
     private class InOrderIterator implements Iterator<Node> {
         private Stack<Node> stack = new Stack<>();
@@ -204,7 +206,7 @@ class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
         @Override
         public Node next() {
             if (!hasNext()) {
-                throw new NoSuchElementException("No more elements in the BST");
+                throw new NoSuchElementException("No more elements in the structures.BST");
             }
 
             Node node = stack.pop();

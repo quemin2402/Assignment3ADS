@@ -1,3 +1,5 @@
+package structures;
+
 /**
  * A simple implementation of a hash table using separate chaining for collision resolution.
  * @param <K> The type of keys maintained by this hash table.
