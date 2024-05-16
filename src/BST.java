@@ -7,8 +7,8 @@ import java.util.Stack;
  * @param <K> The type of keys maintained by this BST.
  * @param <V> The type of mapped values.
  */
-public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
-    private Node root;  // Root node of the BST
+class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
+    protected Node root;  // Root node of the BST
     private int size;   // Number of nodes in the BST
 
     /**
@@ -137,6 +137,29 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
     }
 
     /**
+     * Returns the number of key-value pairs in the BST.
+     * @return The number of key-value pairs in the BST.
+     */
+    public int size() {
+        return size;
+    }
+
+    /**
+     * Performs in-order traversal of the BST and prints each node.
+     */
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    private void inOrder(Node node) {
+        if (node != null) {
+            inOrder(node.left);
+            System.out.println("Key: " + node.getKey() + ", Value: " + node.getValue());
+            inOrder(node.right);
+        }
+    }
+
+    /**
      * Returns an iterator for in-order traversal of the BST.
      * @return An iterator for in-order traversal of the BST.
      */
@@ -189,13 +212,4 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
             return node;
         }
     }
-
-    /**
-     * Returns the number of key-value pairs in the BST.
-     * @return The number of key-value pairs in the BST.
-     */
-    public int size() {
-        return size;
-    }
-
 }
